@@ -1,54 +1,23 @@
-#include <iostream>
-#include <stdexcept>
 #include <vector>
+#include <string>
 #include "task.h"
 
 #ifndef TASKDATABASE_H
 #define TASKDATABASE_H
 
 class taskDatabase {
-    int number;
     std::vector<task> tasks;
+    int nextId = 1;
 
+public:
 
-    public:
-    taskDatabase();
+    void add(const std::string& description);
+    bool update(int id, const std::string& newDescription);
+    bool remove(int id);
+    bool markStatus(int id, task::status newStatus);
 
-    ~taskDatabase();
-
-    taskDatabase(const taskDatabase& other);
-
-    taskDatabase& operator=(const taskDatabase& other);
-
-    //add a task
-
-    //update a task
-
-    //delete a task
-
-    //list ALL tasks
-
-    //List ALL DONE tasks
-
-    //List ALL NOT DONE tasks
-
-    //List ALL PROGRESS tasks
-
-    taskDatabase& add(task& tasks);
-
-    void update(taskDatabase& database);
-
-    taskDatabase& delete_(task& tasks);
-
-    void list_all(taskDatabase& database);
-
-    void list_not_done(taskDatabase& database);
-
-    void list_wip(taskDatabase& database);
-
-
-
-
+    std::vector<task> listAll() const;
+    std::vector<task> listByStatus(task::status s) const;
 };
 
 #endif

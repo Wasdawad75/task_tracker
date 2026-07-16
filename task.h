@@ -1,44 +1,35 @@
-//define the task class
-#include <iostream>
-#include <stdexcept>
 #include <string>
 
 #ifndef TASK_H
 #define TASK_H
 
 class task {
-    double id;
+    int id;
     std::string description;
-    enum status {};
-    struct createdAt;
-    struct updatedAt;
 
 public:
-    //default constructor
-    task();
+    enum class status { notDone, inProgress, done };
 
-    //destructor
-    ~task();
+    // constructor from an id and description (used when adding a new task)
+    task(int id_, const std::string& description_);
 
-    //copy constructor
-    task(const task& other);
+    // getters
+    int getId() const;
+    std::string getDescription() const;
+    status getStatus() const;
+    std::string getCreatedAt() const;
+    std::string getUpdatedAt() const;
 
-    //via assignment
-    task& operator=(const task& other);
+    // setters
+    void setDescription(const std::string& description_);
+    void setStatus(status s);
 
-    //add a task
+private:
+    status current_status;
+    std::string createdAt;
+    std::string updatedAt;
 
-    //update a task
-
-    //delete a task
-
-    //list ALL tasks
-
-    //List ALL DONE tasks
-
-    //List ALL NOT DONE tasks
-
-    //List ALL PROGRESS tasks
+    std::string currentTimestamp() const;
 };
 
 #endif
