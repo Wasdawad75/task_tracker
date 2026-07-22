@@ -18,6 +18,9 @@ public:
 
     std::vector<task> listAll() const;
     std::vector<task> listByStatus(task::status s) const;
+    taskDatabase();
+    void saveToFile() const;
+    void loadFromFile();
 };
 
 #endif

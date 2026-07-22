@@ -1,0 +1,23 @@
+# Compiled object files
+*.o
+*.obj
+
+# Compiled executable
+task-cli
+task-cli.exe
+
+# Compiler/IDE artifacts
+*.exe
+*.out
+.vscode/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Runtime data
+tasks.json
+
+# Standalone test scratch files
+test
+test.cpp
